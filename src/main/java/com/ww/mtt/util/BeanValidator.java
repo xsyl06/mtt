@@ -3,6 +3,7 @@ package com.ww.mtt.util;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.ww.mtt.exception.OwnExcetpein;
 import org.apache.commons.collections4.MapUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -81,12 +82,10 @@ public class BeanValidator {
         }
     }
 
-    public static void checkObject(Object t){
+    public static void checkObject(Object t) throws OwnExcetpein{
         Map<String, String> vires = BeanValidator.validateObject(t);
         if (MapUtils.isNotEmpty(vires)) {
-            for (Map.Entry<String, String> entry : vires.entrySet()) {
-                logger.info("{}->{}", entry.getKey(),entry.getValue());
-            }
+            throw new OwnExcetpein(vires.toString());
         }
     }
 }

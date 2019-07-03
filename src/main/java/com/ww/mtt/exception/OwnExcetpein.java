@@ -15,4 +15,26 @@ public class OwnExcetpein extends RuntimeException {
         this.message = msg;
         this.errorCode = code;
     }
+
+    public OwnExcetpein() {
+        super();
+    }
+
+    public OwnExcetpein(String message) {
+        super(message);
+        this.message = message;
+        this.errorCode = "-999";
+    }
+
+    public OwnExcetpein(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public OwnExcetpein(Throwable cause) {
+        super(cause);
+    }
+
+    protected OwnExcetpein(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+        super(message, cause, enableSuppression, writableStackTrace);
+    }
 }

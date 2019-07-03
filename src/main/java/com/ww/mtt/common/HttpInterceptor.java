@@ -9,7 +9,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedReader;
 import java.util.Map;
 
 @Component
@@ -22,7 +21,6 @@ public class HttpInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String url = request.getRequestURI();
         Map params = request.getParameterMap();
-        BufferedReader parameterMap= request.getReader();
         long start = System.currentTimeMillis();
         request.setAttribute(START_TIME,start);
         logger.info("request start-->url:{}, params:{}",url, JsonUtil.obj2String(params));

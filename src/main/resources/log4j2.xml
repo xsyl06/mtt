@@ -15,7 +15,7 @@
         </File>
     </Appenders>
     <Loggers>
-        <AsyncLogger name="com.ww.mtt.dao" level="Debug" additivity="true"/>
+        <Logger name="com.ww.mtt.dao" level="Debug" additivity="true"/>
 
         <Root level="info">
             <AppenderRef ref="Console" />
