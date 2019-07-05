@@ -45,6 +45,7 @@ public class SysDeptController {
     public JsonData update(@RequestBody DeptParam deptParam) {
         logger.info(deptParam.toString());
         BeanValidator.checkObject(deptParam);
-        return null;
+        deptService.updateDept(deptParam);
+        return JsonData.success();
     }
 }

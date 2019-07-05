@@ -162,4 +162,24 @@
     from sys_dept
     where level like concat(#{level},'.%')
   </select>
+
+  <update id="batchUpdateLevel" parameterType="map">
+    <foreach collection="sysDeptList" item="sysDept" separator=";">
+      update sys_dept set level = #{sysDept.level}
+      where id=#{syDept.id}
+    </foreach>
+  </update>
+
+  <!--查询否重复-->
+  <select id="countByNameAndParentId" resultType="int" parameterType="map">
+    select count(1)
+    from sys_dept
+    where name = #{name}
+    <if test="parentId != null" >
+      and parent_id = #{parentId}
+    </if>
+    <if test="id != null">
+      and id != #{id}
+    </if>
+  </select>
 </mapper>
